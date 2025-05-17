@@ -1,0 +1,25 @@
+.navegacao {
+  height: 112px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3rem;
+}
+
+.link {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  padding: 1rem;
+}
+
+.link:hover {
+  background-color: black;
+  color: white
+}
+@media (max-width: 744px) {
+  .navegacao {
+    height: 72px;
+  }
+}
+
+
