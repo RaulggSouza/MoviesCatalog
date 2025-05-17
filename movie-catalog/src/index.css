@@ -4,11 +4,18 @@
   box-sizing: border-box;
 }
 :root {
-  --azul-escuro: #041833;
-  --azul-medio: #1875e8;
-  --cor-fonte-principal: #041833;
-  --cor-fonte-post: #444444;
+  --preto: #121212;
+  --cinza-escuro: #212121;
+  --cinza-medio: #484848;
+  --cinza-claro: #757575;
+  --cinza-muito-claro: #e0e0e0;
+  --destaque: #009688; /* Tom esverdeado para destaque */
+  --destaque-hover: #00796b;
+  --destaque-secundario: #b2dfdb; /* Versão mais clara do destaque para elementos secundários */
   --branco: #fff;
+  --erro: #ff5252;
+  --sucesso: #4caf50;
+  --alerta: #ffab40;
   --fonte-principal: "Raleway", sans-serif;
   --fonte-secundaria: "Playfair Display", sans-serif;
   font-family: var(--fonte-principal);
