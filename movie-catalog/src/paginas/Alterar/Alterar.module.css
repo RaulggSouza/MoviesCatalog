@@ -9,7 +9,7 @@
 }
 
 .custom {
-  width: 90%;
+  width: 80%;
   max-width: 900px;
   border-radius: 8px;
   background-color: var(--cinza-escuro);
@@ -40,6 +40,75 @@
   background-color: var(--destaque);
 }
 
+.custom h2 {
+  margin-bottom: 1.5rem;
+  color: var(--cinza-muito-claro);
+  font-size: 1.3rem;
+}
+
+/* Campo de busca inicial */
+.searchContainer {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.texto {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.texto label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--cinza-muito-claro);
+  letter-spacing: 0.3px;
+}
+
+.texto input {
+  padding: 0.75rem;
+  border: 1px solid var(--cinza-medio);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--branco);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.texto input:focus {
+  border-color: var(--destaque);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.2);
+}
+
+/* Mensagem de erro */
+.errorContainer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.2);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.errorMessage {
+  color: var(--erro);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Loading */
+.loading {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--cinza-muito-claro);
+}
+
+/* Formulário de edição */
 .formContainer {
   display: flex;
   gap: 2rem;
@@ -73,50 +142,41 @@
   padding: 1rem;
 }
 
-.texto {
-  padding: 0.75rem 0;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.75rem;
-}
-
-.texto label {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: var(--cinza-muito-claro);
-  letter-spacing: 0.3px;
-}
-
-.texto input {
-  padding: 0.75rem;
-  border: 1px solid var(--cinza-medio);
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--branco);
-  border-radius: 4px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.texto input:focus {
-  border-color: var(--destaque);
-  background-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.2);
-}
-
 .imageHelp {
   margin-top: 0.5rem;
   font-size: 0.8rem;
   color: var(--cinza-claro);
 }
 
+/* Botões */
 .botoesContainer {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
-.criar {
-  background-color: var(--destaque);
+.editar {
+  background-color: var(--alerta);
+  color: var(--cinza-escuro);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.editar:hover {
+  background-color: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.salvar {
+  background-color: var(--sucesso);
   color: var(--branco);
   border: none;
   border-radius: 4px;
@@ -129,15 +189,35 @@
   letter-spacing: 0.5px;
 }
 
-.criar:hover {
-  background-color: var(--destaque-hover);
+.salvar:hover {
+  background-color: #3d9140;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.criar:active {
+.salvar:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cancelar {
+  background-color: var(--cinza-medio);
+  color: var(--branco);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cancelar:hover {
+  background-color: var(--cinza-claro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .voltar {
@@ -167,6 +247,15 @@
     padding: 1.5rem;
   }
   
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+  
   .formContainer {
     flex-direction: column-reverse;
     align-items: center;
@@ -177,37 +266,38 @@
     width: 100%;
   }
   
-  h1 {
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
+  .imagePreview {
+    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .custom {
     padding: 1.25rem;
-    font-size: 0.95rem;
     width: 100%;
+    font-size: 0.95rem;
   }
   
   h1 {
     font-size: 1.4rem;
   }
   
-  .criar, .voltar {
-    display: block;
-    width: 100%;
-    margin: 0.5rem 0;
-    text-align: center;
-  }
-  
-  .texto {
-    padding: 0.5rem 0;
-  }
-  
   .botoesContainer {
     flex-direction: column;
     gap: 0.5rem;
+  }
+  
+  .voltar, .editar, .salvar, .cancelar {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .texto input {
+    font-size: 0.9rem;
+  }
+  
+  .imageHelp {
+    font-size: 0.75rem;
   }
 }
 
